@@ -13,12 +13,11 @@ public class OrderTest {
 	@Test
 	public void testSetAndGetId() {
 		long id = 1;
-		LongPK pk = new LongPK(id);
 		Order order = new Order();
 		
-		order.setId(pk);
+		order.setId(id);
 		
-		assertEquals(id, order.getId().getId());
+		assertEquals((Long)id, order.getId());
 	}
 	
 	@Test

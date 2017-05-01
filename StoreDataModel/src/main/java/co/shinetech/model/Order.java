@@ -16,7 +16,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="orders") // MySQL does not accept table called "order", it is reserved word
-public class Order implements Domain<LongPK>{
+public class Order implements Domain<Long>{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
@@ -39,9 +39,9 @@ public class Order implements Domain<LongPK>{
 	/**
 	 * @param id
 	 */
-	public Order(LongPK id) {
+	public Order(Long id) {
 		super();
-		this.id = id.getValue();
+		this.id = id;
 	}
 
 	/**
@@ -54,10 +54,10 @@ public class Order implements Domain<LongPK>{
 	 * @param customer
 	 * @param items
 	 */
-	public Order(LongPK id, Date date, Date estimatedDelivery, OrderStatus orderStatus,
+	public Order(Long id, Date date, Date estimatedDelivery, OrderStatus orderStatus,
 			PaymentMethod paymentMethod, Customer customer, List<OrderItem> items) {
 		super();
-		this.id = id.getValue();
+		this.id = id;
 		this.orderDate = date;
 		this.estimatedDelivery = estimatedDelivery;
 		this.orderStatus = orderStatus;
@@ -66,12 +66,12 @@ public class Order implements Domain<LongPK>{
 		this.items = items;
 	}
 
-	public LongPK getId() {
-		return new LongPK(id);
+	public Long getId() {
+		return new Long(id);
 	}
 
-	public void setId(LongPK id) {
-		this.id = id.getValue();
+	public void setId(Long id) {
+		this.id = id;
 		
 	}
 
@@ -139,13 +139,13 @@ public class Order implements Domain<LongPK>{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + new LongPK(id).hashCode();
+		result = prime * result + new Long(id).hashCode();
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		return new LongPK(id).equals(obj);
+		return new Long(id).equals(obj);
 	}
 
 	/* (non-Javadoc)
