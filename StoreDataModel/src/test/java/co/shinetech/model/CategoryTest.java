@@ -47,5 +47,22 @@ public class CategoryTest {
 
 	}
 	
+	@Test
+	public final void testGetAndSetName() {
+		String TEST_NAME = 'Test Name';
+		Category tCat = new Category();
+		tCat.setName(TEST_NAME);
+		assertEquals(TEST_NAME,tCat.getName());
+	}
+	
+		}
+	
+	@Test
+	public final void testGetAndSetDescription() {
+		String TEST_DESCRIPTION = 'Test Description';
+		Category tCat = new Category();
+		tCat.setDescription(TEST_DESCRIPTION);
+		assertEquals(TEST_DESCRIPTION,tCat.getDescription());
+	}
 
 }
