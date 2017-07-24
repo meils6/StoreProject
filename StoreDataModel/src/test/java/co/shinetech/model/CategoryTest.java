@@ -44,7 +44,6 @@ public class CategoryTest {
 		two.setChildren(child);
 
 		assert(one.equals(two));
-
 	}
 	
 	@Test
@@ -55,14 +54,34 @@ public class CategoryTest {
 		assertEquals(TEST_NAME,tCat.getName());
 	}
 	
-		}
-	
 	@Test
 	public final void testGetAndSetDescription() {
 		String TEST_DESCRIPTION = 'Test Description';
 		Category tCat = new Category();
 		tCat.setDescription(TEST_DESCRIPTION);
 		assertEquals(TEST_DESCRIPTION,tCat.getDescription());
+	}
+	
+		
+	@Test
+	public final void testToString() {
+		Long TEST_ID = 1L;
+		String TEST_NAME = 'Test Name';
+		String TEST_DESCRIPTION = 'Test Description';
+		
+		Category tCat = new Category();
+		tCat.setId(TEST_ID);
+		tCat.setName(TEST_NAME);
+		tCat.setDescription(TEST_DESCRIPTION);
+		
+		String catToString = "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", parent=" + parent +
+                ", children=" + children +
+                '}';
+		assertEquals(catToString,tCat.toString());
 	}
 
 }
